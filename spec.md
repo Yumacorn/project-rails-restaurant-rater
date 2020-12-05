@@ -22,3 +22,5 @@ Confirm:
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
 - [ ] Views use partials if appropriate
+
+// ♥  rails g resource review user:references restaurant:references rating:integer dine-in:boolean take-out:boolean comment:text
