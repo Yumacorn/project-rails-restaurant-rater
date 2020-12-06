@@ -5,8 +5,7 @@ class User < ApplicationRecord
     # Validations
     validates :name, presence: true
     validates :username, presence: true, uniqueness: true
-    validates :age, inclusion: { in: %w(0-99), message: "%{value} must be between 0-99"},
-        # presence: true, 
-        # format: { with: /\A[a-zA-Z]+\z/, message: "only allows letters" }
-        numericality: true 
+    validates :age, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 99} 
+    validates :city, presence: true
+    validates :state, presence: true    
 end
