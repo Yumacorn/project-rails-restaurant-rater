@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  user_id: one
-  restaurant_id: one
+  user: one
+  restaurant: one
   rating: 1
   dining_method: MyString
   comment: MyText
 
 two:
-  user_id: two
-  restaurant_id: two
+  user: two
+  restaurant: two
   rating: 1
   dining_method: MyString
   comment: MyText
