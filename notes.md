@@ -1,3 +1,7 @@
+Temporarily removed from line 9 of application.html.erb of a webpacker issue
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': true %>
+app\views\layouts\application.html.erb
+
 Restaurant Rater
 Design:
 User has_many reviews
