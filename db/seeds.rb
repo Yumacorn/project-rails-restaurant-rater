@@ -7,5 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(name: "Ryan", username: "yuma", age: 28, city: "Syosset", state: "NY")
+User.create(name: "Adela", username: "chews", age: 25, city: "Oyster Bay", state: "NY")
+User.create(name: "Jason", username: "graz", age: 23, city: "Syosset", state: "NY")
+
 
 Restaurant.create(name: "Taco Bell", city: "Bethpage", state: "NY", dine_in: true, take_out: true)
+
+Review.create(user_id: 1, restaurant_id: 1, rating: 5, dining_method: "Take Out", comment: "Service was fast and speedy, so very clean")
+Review.create(user_id: 2, restaurant_id: 1, rating: 2, dining_method: "Dine In", comment: "My table wasn't wiped down between orders")
+Review.create(user_id: 3, restaurant_id: 1, rating: 4, dining_method: "Take Out", comment: "They gave me too many napkins, but it was appreciated!")
