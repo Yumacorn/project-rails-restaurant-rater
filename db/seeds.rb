@@ -10,10 +10,6 @@ User.create(name: "Ryan", username: "yuma", password: "red", age: 28, city: "Syo
 User.create(name: "Adela", username: "chews", password: "blue", age: 25, city: "Oyster Bay", state: "NY")
 User.create(name: "Jason", username: "graz", password: "yellow", age: 23, city: "Syosset", state: "NY")
 
-# Test - Bad Data
-# User.create(name: "Irene", username: "Wawa", password: "", age: "A", city: "Oyster Bay", state: "moo")
-
-
 Restaurant.create(name: "Taco Bell", city: "Bethpage", state: "NY", dine_in: true, take_out: true)
 Restaurant.create(name: "Spice Workshop", city: "Syosset", state: "NY", dine_in: false, take_out: true)
 
@@ -23,3 +19,6 @@ Review.create(user_id: 3, restaurant_id: 1, rating: 4, dining_method: "Take Out"
 Review.create(user_id: 1, restaurant_id: 2, rating: 5, dining_method: "Take Out", comment: "This is authentic schezuean food! I'm definitely coming back here")
 Review.create(user_id: 2, restaurant_id: 2, rating: 4, dining_method: "Take Out", comment: "Pain is a flavor of chinese cuisine, this is a treat!")
 
+# Test - Bad Data
+# User.create(name: "Irene", username: "Wawa", password: "", age: "A", city: "Oyster Bay", state: "moo")
+# Review.create(user_id: 1, restaurant_id: 2, rating: 5, dining_method: "Dine In", comment: "HOOO").errors
