@@ -4,8 +4,6 @@ class Restaurant < ApplicationRecord
 
     # Validations
     validates :name, presence: true
-    validates :username, presence: true, uniqueness: true
-    validates :age, presence: true
     validates :city, presence: true
     validates :state, presence: true
 end

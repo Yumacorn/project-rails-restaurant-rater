@@ -10,6 +10,9 @@ User.create(name: "Ryan", username: "yuma", age: 28, city: "Syosset", state: "NY
 User.create(name: "Adela", username: "chews", age: 25, city: "Oyster Bay", state: "NY")
 User.create(name: "Jason", username: "graz", age: 23, city: "Syosset", state: "NY")
 
+# Test - Bad Data
+User.create(name: "Irene", username: "Wawa", age: "A", city: "Oyster Bay", state: "NY")
+
 
 Restaurant.create(name: "Taco Bell", city: "Bethpage", state: "NY", dine_in: true, take_out: true)
 Restaurant.create(name: "Spice Workshop", city: "Syosset", state: "NY", dine_in: false, take_out: true)
