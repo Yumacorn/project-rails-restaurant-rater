@@ -6,12 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create(name: "Ryan", username: "yuma", age: 28, city: "Syosset", state: "NY")
-User.create(name: "Adela", username: "chews", age: 25, city: "Oyster Bay", state: "NY")
-User.create(name: "Jason", username: "graz", age: 23, city: "Syosset", state: "NY")
+User.create(name: "Ryan", username: "yuma", password: "red", age: 28, city: "Syosset", state: "NY")
+User.create(name: "Adela", username: "chews", password: "blue", age: 25, city: "Oyster Bay", state: "NY")
+User.create(name: "Jason", username: "graz", password: "yellow", age: 23, city: "Syosset", state: "NY")
 
 # Test - Bad Data
-User.create(name: "Irene", username: "Wawa", age: "A", city: "Oyster Bay", state: "NY")
+# User.create(name: "Irene", username: "Wawa", password: "", age: "A", city: "Oyster Bay", state: "moo")
 
 
 Restaurant.create(name: "Taco Bell", city: "Bethpage", state: "NY", dine_in: true, take_out: true)
