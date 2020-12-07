@@ -4,8 +4,8 @@
 <ul>
     <% @restaurants.each_with_index do |restaurant, index| %>
         <li>
-            <div>[Review <%= index + 1%>]</div>
-            <div><span class="tab"> Restaurant: <%= restaurant.name %> <span class="tab">City: <%= restaurant.city %> <span class="tab">State: <%= restaurant.state %></div>
+            <div>[Review <%= index + 1%>] <span class="tab"> Restaurant: <%= restaurant.name %></div>
+            <div> <span class="tab">City: <%= restaurant.city %> <span class="tab">State: <%= restaurant.state %></div>
             <div><span class="tab"> Dine-in: 
                 <% if restaurant.dine_in %>
                     Yes
