@@ -1,1 +1,13 @@
 <h1>User List</h1>
+<h2>Below is the full list of Users who have visited Restaurant Rater!</h2>
+
+<ul>
+    <% @users.each_with_index do |user, index| %>
+        <li>
+            <div>[User <%= index + 1%>] "<%= user.username %>"</div>
+            <div><span class="tab">Name: <%= user.name %> <span class="tab">Age: <%= user.age %> <span class="tab">City: <%= user.city %> <span class="tab">State: <%= user.state %></div>
+            <div><span class="tab">Number of Reviews: <%= user.reviews.size %></div><br>
+        </li>
+    <% end %>
+</ul>
+<p>If you'd like to join, please feel free to _sign up_</p>
