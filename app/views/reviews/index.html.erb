@@ -5,6 +5,8 @@
     <% @reviews.each_with_index do |review, index| %>
         <li>
             <div>[Review <%= index + 1%>]</div>
+            <%# button_to documentation notes that by default, it will have action of :post. Adjusted below for "edit" button to be get request to function#%>
+
             <%= button_to "Edit", edit_review_path(review), method: :get %><span class="tab"><%= button_to "Delete", review, method: :delete %>
             <div><span class="tab"> Restaurant: <%= review.restaurant.name %> <span class="tab">Rating: <%= review.rating %></div>
             <div><span class="tab"> Comment: <%= review.comment %></div>
