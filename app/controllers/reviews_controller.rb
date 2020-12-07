@@ -13,7 +13,6 @@ class ReviewsController < ApplicationController
 
     def create
         @review = Review.create(review_params)
-        binding.pry
         redirect_to review_path(@review)
     end
 

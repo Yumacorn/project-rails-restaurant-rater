@@ -26,4 +26,12 @@ Review belongs_to user, belongs_to restaurant
     -dining_method: dine_in, take_out
     -comment:text
 
+-Add # of ratings, and average rating per restaurant
+-Add # of ratings by User
+-Implement sign in/out/authentication via facebook
+-restrict users from editing/deleting posts that aren't their own
+-In order to make a review, must be logged in
+-When making a review, automatically pull user_id
+-when making a review, limit range of rating 1-5
+ 
 
