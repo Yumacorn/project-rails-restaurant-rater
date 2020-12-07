@@ -4,10 +4,11 @@
 <ul>
     <% @reviews.each_with_index do |review, index| %>
         <li>
-            <div>[Review <%= index + 1%>]</div>
+            <div>[Review <%= index + 1%>]<span class="tab"><%= link_to "Edit", edit_review_path(review) %></div>
             <div><span class="tab"> Restaurant: <%= review.restaurant.name %> <span class="tab">Rating: <%= review.rating %></div>
             <div><span class="tab"> Comment: <%= review.comment %></div>
-            <div><span class="tab"><span class="tab"><span class="tab"><span class="tab"><span class="tab">-<%= review.user.username %><br><br>
+            <div><span class="tab"><span class="tab"><span class="tab"><span class="tab"><span class="tab">-<%= review.user.username %><br>
+            <br><br>
         </li>
     <% end %>
 </ul>
