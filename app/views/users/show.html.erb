@@ -1,6 +1,9 @@
 <h1>User Page</h1>
 <h2>Profile</h2>
 
+<%= link_to "Return to User List", users_path %><br>
+<%= link_to "Create New User", new_user_path %><br>
+
 <ul>
     <li>
         <div><%= @user.username %></div>

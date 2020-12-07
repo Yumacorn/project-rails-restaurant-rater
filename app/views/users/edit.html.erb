@@ -1,17 +1,21 @@
 <h1>Edit User</h1>
+<h3> Here is where you can edit this User </h3>
+
+<%= link_to "Return to User List", users_path %><br>
 
 <%= form_for(@user) do |f| %>
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br>
     <%= f.label :username %>
-    <%= f.text_field :username %>
+    <%= f.text_field :username %><br>
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.text_field :password %><br>
     <%= f.label :age %>
-    <%= f.text_field :age %>
+    <%= f.text_field :age %><br>
     <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= f.text_field :city %><br>
     <%= f.label :state %>
-    <%= f.text_field :state %>
+    <%= f.text_field :state %><br>
     <%= f.submit %>
 <% end %>
+
