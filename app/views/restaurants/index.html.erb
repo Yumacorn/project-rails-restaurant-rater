@@ -1,1 +1,26 @@
 <h1>Restaurant List</h1>
+<h2>Below is the full list of Restaurant kept on Restaurant Rater!</h2>
+
+<ul>
+    <% @restaurants.each_with_index do |restaurant, index| %>
+        <li>
+            <div>[Review <%= index + 1%>]</div>
+            <div><span class="tab"> Restaurant: <%= restaurant.name %> <span class="tab">City: <%= restaurant.city %> <span class="tab">State: <%= restaurant.state %></div>
+            <div><span class="tab"> Dine-in: 
+                <% if restaurant.dine_in %>
+                    Yes
+                <% else %>
+                    No
+                <% end %>
+            <span class="tab"> Take-out: 
+                <% if restaurant.take_out %>
+                    Yes
+                <% else %>
+                    No
+                <% end %>
+            <span class="tab"> Number of Reviews: <%= restaurant.reviews.size %>
+            </div><br>
+        </li>
+    <% end %>
+</ul>
+<p>If you'd like to join, please feel free to _sign up_</p>
