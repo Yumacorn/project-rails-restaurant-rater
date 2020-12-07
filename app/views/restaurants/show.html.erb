@@ -1,0 +1,20 @@
+<h1>Restaurant Profile - <%= @restaurant.name %></h1>
+
+<ul>
+    <div>City: <%= @restaurant.city %></div>
+    <div>State: <%= @restaurant.state %></div><br>
+    <div><span class="tab"> Dine-in: 
+        <% if @restaurant.dine_in %>
+            Yes
+        <% else %>
+            No
+        <% end %>
+    <span class="tab"> Take-out: 
+        <% if @restaurant.take_out %>
+            Yes
+        <% else %>
+            No
+        <% end %></div><br>
+    <div>Number of Reviews: <%= @restaurant.reviews.size %></div><br>
+</ul>
+<p>If you'd like to join, please feel free to _sign up_</p>
