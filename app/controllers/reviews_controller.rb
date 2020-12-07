@@ -27,6 +27,11 @@ class ReviewsController < ApplicationController
         redirect_to review_path(@review)
     end
 
+    def destroy
+        Review.find(params[:id]).destroy
+        redirect_to reviews_path
+    end
+
     private
     def review_params
         params.require(:review).permit(:user_id, :restaurant_id, :rating, :dining_method, :comment)
