@@ -40,6 +40,7 @@ Review belongs_to user, belongs_to restaurant
 
 -Header: Home, Users, Restaurants, Reviews
 -Footer
+ like a logo, navigation links, a search bar, and a footer at the bottom that contains some info about the shop.
 
 
 if user not current user, can/can't before_action, cancancan gem
