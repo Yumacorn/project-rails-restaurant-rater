@@ -1,9 +1,6 @@
 <h1>User Page</h1>
 <h2>Profile</h2>
 
-<%= link_to "Return to User List", users_path %><br>
-<%= link_to "Create New User", new_user_path %><br>
-
 <ul>
     <li>
         <div><%= @user.username %></div>
@@ -11,4 +8,3 @@
         <div><span class="tab">Number of Reviews: <%= @user.reviews.size %></div><br>
     </li>
 </ul>
-<p>If you'd like to join, please feel free to _sign up_</p>

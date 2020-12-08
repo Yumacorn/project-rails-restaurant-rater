@@ -1,8 +1,6 @@
 <h1>User List</h1>
 <h2>Below is the full list of Users who have visited Restaurant Rater!</h2>
 
-<%= link_to "Create New User", new_user_path %><br>
-
 <ul>
     <% @users.each_with_index do |user, index| %>
         <li>
@@ -16,4 +14,3 @@
         </li>
     <% end %>
 </ul>
-<p>If you'd like to join, please feel free to _sign up_</p>
