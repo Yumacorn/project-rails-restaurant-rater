@@ -1,8 +1,6 @@
 <h1>New Restaurant</h1>
 <h3>Here is where you can create a new Restaurant </h3>
 
-<%= link_to "Return to Restaurant List", restaurants_path %><br><br>
-
 <%= form_for(@restaurant) do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %><br>
