@@ -1,6 +1,8 @@
 Temporarily removed from line 9 of application.html.erb of a webpacker issue
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': true %>
 app\views\layouts\application.html.erb
+-webpacker??
+
 
 Restaurant Rater
 Design:
@@ -26,23 +28,22 @@ Review belongs_to user, belongs_to restaurant
     -dining_method: dine_in, take_out
     -comment:text
 
--Implement sign in/out/authentication via facebook
--restrict users from editing/deleting posts that aren't their own*Guard Data*
--In order to make a review, must be logged in
--When making a review, automatically pull user_id
+-Implement sign in/out/authentication via facebook: Omniauth
+    -In order to make a review, must be logged in
+    -sessions resource
+
+-restrict users from editing/deleting posts that aren't their own*Guard Data* CanCanCan
+    -When making a review, automatically pull user_id
+    if user not current user, can/can't before_action, cancancan gem
+
 -nested attributes for user/reviews, restaurant/reviews (acceps_nested_attributes)
--Restaurant.find_or_create_by(params)
--radio_button
--sessions resource
+    -Restaurant.find_or_create_by(params)
+    
 -search/scope FILTER by City/state
 ***Stretch - Follow other users? Favorite their reviews?
--webpacker??
 
--Header: Home, Users, Restaurants, Reviews
 -Footer
- like a logo, navigation links, a search bar, and a footer at the bottom that contains some info about the shop.
+***Fixed unexpected behavior on Review Index, obscures viewport
 
-
-if user not current user, can/can't before_action, cancancan gem
  
 
