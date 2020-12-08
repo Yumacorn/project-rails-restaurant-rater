@@ -3,16 +3,15 @@
 
 <ul>
     <% @reviews.each_with_index do |review, index| %>
-        <li>
-            <div>[Review <%= index + 1%>]</div>
-            <%# button_to documentation notes that by default, it will have action of :post. Adjusted below for "edit" button to be get request to function#%>
+        <div class='button-line'>[Review <%= index + 1%>]
+        <%# button_to documentation notes that by default, it will have action of :post. Adjusted below for "edit" button to be get request to function#%>
 
-            <%= button_to "Edit", edit_review_path(review), method: :get %><%= button_to "Delete", review, method: :delete %>
-            <div><span class="tab"> Restaurant: <%= review.restaurant.name %> <span class="tab">Rating: <%= review.rating %></div>
-            <div><span class="tab"> Comment: <%= review.comment %></div>
-            <div><span class="tab"><span class="tab"><span class="tab"><span class="tab"><span class="tab">-<%= review.user.username %><br>
-            <br><br>
-        </li>
+        <%= button_to "Edit", edit_review_path(review), method: :get %>
+        <%= button_to "Delete", review, method: :delete %></div>
+        <div><span class="tab"> Restaurant: <%= review.restaurant.name %></div>
+        <div><span class="tab">Rating: <%= review.rating %> stars</div>
+        <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab">-<%= review.user.username %></div><br>
+        <br><br>
     <% end %>
 </ul>
 <p>If you'd like to join, please feel free to _sign up_</p>

@@ -32,6 +32,10 @@
    color: black; 
 } 
 
+.button-line {
+   display: flex;
+}
+
 .footer {
    position: fixed;
    left: 0;
