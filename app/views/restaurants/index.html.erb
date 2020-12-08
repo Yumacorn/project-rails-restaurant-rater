@@ -1,6 +1,7 @@
 <h1>Restaurant List</h1>
 <h2>Below is the full list of Restaurant kept on Restaurant Rater!</h2>
 
+<p><%= link_to "Add Restaurant", new_restaurant_path %></p>
 <ul>
     <% @restaurants.each_with_index do |restaurant, index| %>
         <li>

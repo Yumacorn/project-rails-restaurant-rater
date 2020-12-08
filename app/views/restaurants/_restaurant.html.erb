@@ -1,0 +1,13 @@
+<%= form_for(@restaurant) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :city %>
+    <%= f.text_field :city %><br>
+    <%= f.label :state %>
+    <%= f.text_field :state %><br>
+    <%= f.label :dine_in %>
+    <%= f.check_box :dine_in %><br>
+    <%= f.label :take_out %>
+    <%= f.check_box :take_out %><br>
+    <%= f.submit %>
+  <% end %>
