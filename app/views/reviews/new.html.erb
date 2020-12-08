@@ -13,9 +13,15 @@
     <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :name) %><br>
 
     <%= f.label :rating, 'Rating (1 to 5 stars)' %>
-    <%= f.number_field :rating, min: 1, max: 5%><br>
-    <%= f.label :dining_method %>
-    <%= f.select :dining_method, ['Dine In', 'Take Out']%><br>
+    <%= f.select :rating, [1,2,3,4,5]%><br>
+
+    <%= f.label :dining_method %><br>
+    <%= f.label :dining_method, 'Dine In' %>
+    <%= f.radio_button :dining_method, 'Dine In', :value => 'Dine In' %>
+    <%= f.label :dining_method, 'Take Out' %>
+    <%= f.radio_button :dining_method, 'Take Out', :value => 'Take Out' %>
+    
+    <br>
     <%= f.label :comment %>
     <%= f.text_area :comment %><br>
     <%= f.submit %>

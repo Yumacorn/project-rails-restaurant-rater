@@ -9,7 +9,8 @@
 
 <ul>
     <li>
-        <div><span class="tab"> Restaurant: <%= @review.restaurant.name %> <span class="tab">Rating: <%= @review.rating %></div>
+        <div><span class="tab"> Restaurant: <%= @review.restaurant.name %> <span class="tab">Rating: <%= @review.rating %> stars</div>
+        <p>Dining Method: <%= @review.dining_method %></p>
         <div><span class="tab"> Comment: <%= @review.comment %></div>
         <div><span class="tab"><span class="tab"><span class="tab"><span class="tab"><span class="tab">-<%= @review.user.username %><br><br>
     </li>
