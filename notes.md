@@ -29,8 +29,9 @@ Review belongs_to user, belongs_to restaurant
     -comment:text
 
 -Implement sign in/out/authentication via facebook: Omniauth
-    -In order to make a review, must be logged in
     -sessions resource
+        ***Why is the the form for login not appearing?
+    -In order to make a review, must be logged in
 
 -restrict users from editing/deleting posts that aren't their own*Guard Data* CanCanCan
     -When making a review, automatically pull user_id
@@ -38,7 +39,7 @@ Review belongs_to user, belongs_to restaurant
 
 -nested attributes for user/reviews, restaurant/reviews (acceps_nested_attributes)
     -Restaurant.find_or_create_by(params)
-    
+
 -search/scope FILTER by City/state
 ***Stretch - Follow other users? Favorite their reviews?
 
