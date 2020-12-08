@@ -18,6 +18,27 @@
     padding-left: 30px;
   }
 
-.navlist-right{ 
+.navigation{ 
+   background-color: turquoise;
+   color: white;
+} 
+
+.navigation-right{ 
    float:right; 
 } 
+
+.navigation a:hover { 
+   background-color: #ddd; 
+   color: black; 
+} 
+
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   padding-bottom: 10px;
+   width: 100%;
+   background-color: turquoise;
+   color: white;
+   text-align: center;
+ }
