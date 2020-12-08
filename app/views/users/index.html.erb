@@ -4,13 +4,10 @@
 <ul>
     <% @users.each_with_index do |user, index| %>
         <li>
-            <div>[User <%= index + 1%>] "<%= user.username %>"</div>
-            </div>
-            <div><span class="tab">Name: <%= user.name %> <span class="tab">Age: <%= user.age %> <span class="tab">City: <%= user.city %> <span class="tab">State: <%= user.state %></div>
-            <div><span class="tab">Number of Reviews: <%= user.reviews.size %></div><br>
-            <div>
-            <span><%= user.name %></span>
-</div>
+            <div><strong>User <%= index + 1%>:</strong> "<%= user.username %>"</div>
+            <span class="tab">Name: <%= user.name %><span class="tab">Age: <%= user.age %><br>
+            <span class="tab">City: <%= user.city %><span class="tab">State: <%= user.state %><br>
+            <div><span class="tab"><span class="tab">(<%= user.reviews.size %>) Reviews Posted</div><br>
         </li>
     <% end %>
 </ul>
