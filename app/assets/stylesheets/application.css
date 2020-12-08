@@ -15,5 +15,9 @@
  */
 
  .tab {
-    padding-left: 10px;
+    padding-left: 30px;
   }
+
+.navlist-right{ 
+   float:right; 
+} 
