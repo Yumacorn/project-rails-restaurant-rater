@@ -18,9 +18,9 @@ Specs:
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
-- [ ] The application is pretty DRY
-- [ ] Limited logic in controllers
-- [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] The application is pretty DRY
+- [x] Limited logic in controllers
+- [x] Views use helper methods if appropriate
+- [x] Views use partials if appropriate
 
 // ♥  rails g resource review user:references restaurant:references rating:integer dine-in:boolean take-out:boolean comment:text
