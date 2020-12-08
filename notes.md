@@ -26,12 +26,22 @@ Review belongs_to user, belongs_to restaurant
     -dining_method: dine_in, take_out
     -comment:text
 
--Add # of ratings, and average rating per restaurant
--Add # of ratings by User
 -Implement sign in/out/authentication via facebook
--restrict users from editing/deleting posts that aren't their own
+-restrict users from editing/deleting posts that aren't their own*Guard Data*
 -In order to make a review, must be logged in
 -When making a review, automatically pull user_id
--when making a review, limit range of rating 1-5
+-nested attributes for user/reviews, restaurant/reviews (acceps_nested_attributes)
+-Restaurant.find_or_create_by(params)
+-radio_button
+-sessions resource
+-search/scope FILTER by City/state
+***Stretch - Follow other users? Favorite their reviews?
+-webpacker??
+
+-Header: Home, Users, Restaurants, Reviews
+-Footer
+
+
+if user not current user, can/can't before_action, cancancan gem
  
 
