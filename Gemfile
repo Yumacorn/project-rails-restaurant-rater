@@ -30,6 +30,7 @@ gem 'omniauth-google'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# Use binding.pry for troubleshooting
 gem 'pry'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
