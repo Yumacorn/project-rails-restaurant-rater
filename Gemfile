@@ -22,8 +22,9 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-# Use OmniAuth for Google
+# Use OmniAuth more: https://github.com/omniauth/omniauth
 gem 'omniauth'
+# Use OmniAuth for Google more: https://github.com/Yesware/omniauth-google
 gem 'omniauth-google'
 
 # Use Active Storage variant
