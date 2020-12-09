@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   root to: 'application#home'
-  get '/home', to: 'application#home'
+  # get '/home', to: 'application#home', as: "home"
 
   get '/login', to: 'sessions#new'
   post   '/login', to: 'sessions#create'
+  # preparing to use OmniAuth Google strategy
+  # post '/auth/:google/callback', to: 'sessions#create'
+
+
   delete '/logout', to: 'sessions#destroy'
   
   resources :reviews
