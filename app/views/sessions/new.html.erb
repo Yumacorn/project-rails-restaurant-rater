@@ -1,11 +1,5 @@
-<h1>Sessions#new</h1>
-<p>Authorization Page w/ basic, then use FACEBOOK</p>
+<h1>Sessions</h1>
+<p>Authorization Page</p>
 
-<% form_for @user, :url => login_path(@user) do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
-    <%= f.label :password %>
-    <%= f.text_field :password %><br>
-    <%= f.submit %>
-    <p>Say something</p>
-<% end %>
+<%= link_to "Log In with Google", '/auth/google_oauth2/callback' %><br>
+<%= link_to "Log In with Google", '/auth/google_oauth2' %>

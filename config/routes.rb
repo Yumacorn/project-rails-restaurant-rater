@@ -3,9 +3,15 @@ Rails.application.routes.draw do
   # get '/home', to: 'application#home', as: "home"
 
   get '/login', to: 'sessions#new'
-  post   '/login', to: 'sessions#create'
+  # post   '/login', to: 'sessions#create'
   # preparing to use OmniAuth Google strategy
   # post '/auth/:google/callback', to: 'sessions#create'
+
+  # preparing to use OmniAuth2 Google strategy
+  get '/auth/:provider/callback' => 'sessions#omniauth'
+  get '/auth/:provider' => 'sessions#omniauth'
+
+  # get '/auth/:provider/callback' => 'sessions#create'
 
 
   delete '/logout', to: 'sessions#destroy'

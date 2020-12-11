@@ -13,4 +13,19 @@ class User < ApplicationRecord
     validates :city, presence: true
     validates :state, presence: true, inclusion: { in: US_STATES,
         message: "%{value} is not a valid US state" }
+
+    # def self.from_omniauth(auth)
+    #     where(email: auth.info.email).first_or_initialize do |user|
+    #         user.username = auth.info.name
+    #         user.password = SecureRandom.hex
+    #     end
+    # end
+
+    def self.from_omniauth(auth)
+        where(email: auth.info.email).first_or_initialize do |user|
+          user.user_name = auth.info.name
+          user.email = auth.info.email
+          user.password = SecureRandom.hex
+        end
+      end
 end
