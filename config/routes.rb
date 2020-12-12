@@ -2,8 +2,10 @@ Rails.application.routes.draw do
   root to: 'application#home'
 
   get '/login', to: 'sessions#new'
-  get '/auth/google', as: 'google_login'
-  get '/auth/:provider/callback', to: 'sessions#create'
+  # get '/auth/google', as: 'google_login'
+  # get '/auth/:provider/callback', to: 'sessions#create'
+  post '/auth/:provider/callback', to: 'sessions#create'
+
 
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'

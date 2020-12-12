@@ -24,11 +24,15 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use OmniAuth more: https://github.com/omniauth/omniauth
 gem 'omniauth'
+
+gem 'omniauth-facebook'
+
 # Use OmniAuth for Google more: https://github.com/Yesware/omniauth-google
 gem 'omniauth-google'
 
 # Use OAuth2 for Google more: https://github.com/zquestz/omniauth-google-oauth2
 gem 'omniauth-google-oauth2'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   # before_action :require_login
   # skip_before_action :require_login, only: [:index]
+  skip_before_action :verify_authenticity_token, only: :create
 
   def new
     @user = User.new
@@ -8,6 +9,10 @@ class SessionsController < ApplicationController
   
   def create
     binding.pry
+    @user = User.find_or_create_from_auth_hash(auth_hash)
+    self.current_user = @user
+    redirect_to '/'
+
     user_info = request.env['omniauth.auth']
 
     session[:username] = params[:username]
@@ -36,7 +41,7 @@ class SessionsController < ApplicationController
   
   private
 
-  def auth
+  def auth_hash
     request.env['omniauth.auth']
   end
 end
