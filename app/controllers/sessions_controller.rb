@@ -1,36 +1,27 @@
 class SessionsController < ApplicationController
+  # before_action :require_login
+  # skip_before_action :require_login, only: [:index]
 
   def new
     @user = User.new
   end
-
-  # def create
-  #   binding.pry
-  #   if @user.save && params[:user][:password] == params[:user][:password_confirmation]
-  #     session[:user_id] = @user.id
-  #     redirect_to users_path(@user)
-  #   else
-  #       redirect_to new_user_path
-  #   end
-  #   @user = User.find_by(username: params[:username])
-  #   return head(:forbidden) unless @user.authenticate(params[:password])
-  #   session[:user_id] = @user.id
-  #   # render 'sessions/welcome'
-  # end
   
-  # def create
-  #   @user = User.find_or_create_from_auth_hash(auth_hash)
-  #   self.current_user = @user
-  #   redirect_to '/'
-  # end
+  def create
+    binding.pry
+    user_info = request.env['omniauth.auth']
 
-  # protected
+    session[:username] = params[:username]
+    redirect_to '/'
 
-  # def auth_hash
-  #   request.env['omniauth.auth']
-  # end
+    user = User.find_by(username: params[:username])
+    authenticated = user.try(:authenticate, params[:password])
+    return head(:forbidden) unless authenticated
+    @user = user
+    session[:user_id] = @user.id
+  end
 
   def destroy
+    binding.pry
     session.delete :username
   end
 
