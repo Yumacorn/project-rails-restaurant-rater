@@ -26,7 +26,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 
 gem 'omniauth-facebook'
-
+gem 'omniauth-github'
 # Use OmniAuth for Google more: https://github.com/Yesware/omniauth-google
 gem 'omniauth-google'
 
