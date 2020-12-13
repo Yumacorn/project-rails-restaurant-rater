@@ -1,0 +1,22 @@
+<p><strong>----------- Current User Session: ---------</strong></p>
+<% if session[:name] %>
+    <% name = session[:name] %>
+    <p>Currently: <%= name -%> </p>
+    <p>Authenticated via  <%= session[:omniauth_data]['provider'] %></p>
+
+    The raw data returned from Omniauth were:
+    <pre>
+        <%#= session[:omniauth_data] %>
+        Nickname: <%= session[:omniauth_data]['info']['nickname'] %>
+        User ID: <%= session[:omniauth_data]['uid'] %>
+    </pre>
+<% end %>
+<p>Set 2</p>
+<% if request.env != nil %>
+    The raw data returned from Omniauth were:
+        <%= pp session[:omniauth_data] %><br>
+        Nickname: <%= session[:omniauth_data]['info']['nickname'] %><br>
+        User ID: <%= session[:omniauth_data]['uid'] %><br>
+        <%= image_tag session[:omniauth_data]['info']['image'] %><br> 
+<% end %>
+<p><strong>--------------------------------------------------</strong></p>

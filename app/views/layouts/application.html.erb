@@ -15,25 +15,15 @@
           <a href="/users">Users</a>
           <a href="/restaurants">Restaurants</a>
           <a href="/reviews">Reviews</a>
-          <div class="navigation-right"> 
+          <div class="navigation-right">  
             <a href="/login">Login</a>
             <a href="/users/new">Signup</a> 
           </div> 
         </ul>
       </div>
-      <#% binding.pry %>
-      <% if session[:name] %>
-        <% name = session[:name] %>
-        <p>Welcome <%= name -%>! We know who you are thanks to Omniauth!</p>
-        <p>You were authenticated by  <%= session[:omniauth_data]['provider'] %></p>
-
-        The raw data returned from Omniauth were:
-        <pre>
-          <%= session[:omniauth_data] %>
-        </pre>
-      <% end %>
-
-
+      <div class="navigation-right">  
+        <%= render '/sessions/session' %>
+      </div>
     <%= yield %>
 
     <div class="footer">

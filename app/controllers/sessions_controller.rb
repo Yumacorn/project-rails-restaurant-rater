@@ -10,8 +10,6 @@ class SessionsController < ApplicationController
     x = session[:omniauth_data]
     session[:user_id] = session[:omniauth_data]['uid']
     binding.pry
-
-
     redirect_to '/'
 
 
