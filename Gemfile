@@ -33,6 +33,8 @@ gem 'omniauth-google'
 # Use OAuth2 for Google more: https://github.com/zquestz/omniauth-google-oauth2
 gem 'omniauth-google-oauth2'
 
+gem 'dotenv-rails'
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

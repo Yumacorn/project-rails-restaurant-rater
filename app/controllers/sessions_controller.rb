@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     binding.pry
     session[:name] = request.env['omniauth.auth']['info']['name'] || request.env['omniauth.auth']['info']['nickname']
     session[:omniauth_data] = request.env['omniauth.auth']
+    
     redirect_to root_path
     # @user = User.find_or_create_from_auth_hash(auth_hash)
     # self.current_user = @user
