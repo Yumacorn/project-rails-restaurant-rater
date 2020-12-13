@@ -21,16 +21,9 @@
           </div> 
         </ul>
       </div>
-      <%= link_to "Log In with Developer", '/auth/developer' %><br>
-
-
-      <%= link_to "Log In with Google", '/auth/google_oauth2' %><br>
-      <%= link_to('Log in with Facebook!', '/auth/facebook') %><br>
-
-      <p>Try <%= link_to 'Signing in with the GitHub strategy', '/auth/github'%>.</p>
-      <%= link_to "Log In with Github", '/auth/github' %><br>
-
-      <% if name = session[:name] %>
+      <#% binding.pry %>
+      <% if session[:name] %>
+        <% name = session[:name] %>
         <p>Welcome <%= name -%>! We know who you are thanks to Omniauth!</p>
         <p>You were authenticated by  <%= session[:omniauth_data]['provider'] %></p>
 

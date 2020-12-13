@@ -2,18 +2,20 @@ class SessionsController < ApplicationController
   # before_action :require_login
   # skip_before_action :require_login, only: [:index]
   skip_before_action :verify_authenticity_token, only: :create
-
-  # def new
-  #   @user = User.new
-  # end
-  
+   
   def create
     pp request.env['omniauth.auth']
-    binding.pry
-    session[:name] = request.env['omniauth.auth']['info']['name'] || request.env['omniauth.auth']['info']['nickname']
     session[:omniauth_data] = request.env['omniauth.auth']
-    
-    redirect_to root_path
+    session[:name] = request.env['omniauth.auth']['info']['name'] || request.env['omniauth.auth']['info']['nickname']
+    x = session[:omniauth_data]
+    session[:user_id] = session[:omniauth_data]['uid']
+    binding.pry
+
+
+    redirect_to '/'
+
+
+    # redirect_to root_path
     # @user = User.find_or_create_from_auth_hash(auth_hash)
     # self.current_user = @user
     # redirect_to '/'
@@ -35,18 +37,18 @@ class SessionsController < ApplicationController
   #   session.delete :username
   # end
 
-  # def omniauth
-  #   binding.pry
+  def omniauth
+    binding.pry
 
-  #   @user = User.from_omniauth(auth)
-  #   @user.save
-  #   session[:user_id] = @user.id
-  #   redirect_to home_path
-  # end
+    @user = User.from_omniauth(auth)
+    @user.save
+    session[:user_id] = @user.id
+    redirect_to home_path
+  end
   
-  # private
+  private
 
-  # def auth_hash
-  #   request.env['omniauth.auth']
-  # end
+  def auth_hash
+    request.env['omniauth.auth']
+  end
 end
