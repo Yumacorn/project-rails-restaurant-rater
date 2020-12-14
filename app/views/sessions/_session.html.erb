@@ -20,3 +20,7 @@
         <%#= image_tag session[:omniauth_data]['info']['image'] %><br> 
 <% end %>
 <p><strong>--------------------------------------------------</strong></p>
+
+<%= link_to "Logout", '/logout' %><br>
+<%#= link_to "Log out", sessions_path, method: "delete" %>
+

@@ -4,26 +4,32 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
    
   def create
-    pp request.env['omniauth.auth']
-    session[:user_id] = auth['uid']
-    @user = User.from_omniauth(auth)
-    if @user.save
-      session[:user_id] = @user.id
+    binding.pry
+    if request.env["omniauth.auth"]
+      pp request.env['omniauth.auth']
+      session[:user_id] = auth['uid']
+      @user = User.from_omniauth(auth)
+      if @user.save
+        session[:user_id] = @user.id
+      end
     else
+      # user login via non omniauth
+      user = User.find_by(username: params[:username])
+      authenticated = user.try(:authenticate, params[:password])
+      return head(:forbidden) unless authenticated
+      @user = user
+      session[:user_id] = @user.id
     end
     redirect_to '/'
-
-    # user = User.find_by(username: params[:username])
-    # authenticated = user.try(:authenticate, params[:password])
-    # return head(:forbidden) unless authenticated
-    # @user = user
-    # session[:user_id] = @user.id
   end
 
-  # def destroy
-  #   binding.pry
-  #   session.delete :username
-  # end
+  def destroy
+    binding.pry
+    reset_session
+    session[:user_id] = nil
+    session.delete :username
+    redirect_to '/'
+  end
 
   def omniauth
     @user = User.from_omniauth(auth)

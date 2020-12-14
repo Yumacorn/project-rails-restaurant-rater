@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   post '/auth/:provider/callback', to: 'sessions#create'
 
   # post '/login', to: 'sessions#create'
-  # delete '/logout', to: 'sessions#destroy'
-
   get '/login', to: 'sessions#new'
+  delete 'logout', to: 'sessions#destroy'
+  
 
   
   resources :reviews
