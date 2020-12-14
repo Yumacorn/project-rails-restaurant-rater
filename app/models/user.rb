@@ -14,11 +14,39 @@ class User < ApplicationRecord
         message: "%{value} is not a valid US state" }
 
     def self.from_omniauth(auth)
-      binding.pry
-        where(email: auth.info.email).first_or_initialize do |user|
-          user.user_name = auth.info.name
-          user.email = auth.info.email
-          user.password = SecureRandom.hex
+      #if github, this is how to pull username request.env['omniauth.auth']['info']['nickname']
+      #elsif google, this is how to pull email request.env['omniauth.auth']['info']['email']
+      #else pull from developer strategy, name request.env['omniauth.auth']['info']['name']
+      if auth.provider == "github"
+        where(username: auth.info.nickname).first_or_initialize do |user|
+          user.username = auth.info.nickname
+          # user.password = SecureRandom.hex
+          user.password = 'Fix'
+          user.age = 28
+          user.city = 'Syosset'
+          user.state = 'NY'
         end
+      elsif auth.provider == "google_oauth2"
+        where(username: auth.info.email).first_or_initialize do |user|
+          user.username = auth.info.email
+          user.name = auth.info.name
+          user.password = 'Fix'
+          user.age = 32
+          user.city = 'Melville'
+          user.state = 'NY'
+        end
+      else
+        where(username: auth.info.email).first_or_initialize do |user|
+        end
+      end
     end
+
+    def self.logged_in?(session_id)
+      if @user = User.find(session_id)
+        @user
+      else
+        nil
+      end
+    end
+    
 end

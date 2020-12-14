@@ -11,12 +11,12 @@
         User ID: <%= session[:omniauth_data]['uid'] %>
     </pre>
 <% end %>
-<p>Set 2</p>
-<% if request.env != nil %>
-    The raw data returned from Omniauth were:
-        <%= pp session[:omniauth_data] %><br>
-        Nickname: <%= session[:omniauth_data]['info']['nickname'] %><br>
-        User ID: <%= session[:omniauth_data]['uid'] %><br>
-        <%= image_tag session[:omniauth_data]['info']['image'] %><br> 
+
+<% if session[:user_id] %>
+    The raw data returned from Omniauth were:<br>
+        <%= @user = User.find(session[:user_id]) %><br>
+        Username: <%= @user.username %><br>
+        User ID: <%= @user.id %><br>
+        <%#= image_tag session[:omniauth_data]['info']['image'] %><br> 
 <% end %>
 <p><strong>--------------------------------------------------</strong></p>

@@ -5,23 +5,13 @@ class SessionsController < ApplicationController
    
   def create
     pp request.env['omniauth.auth']
-    session[:omniauth_data] = request.env['omniauth.auth']
-    session[:name] = request.env['omniauth.auth']['info']['name'] || request.env['omniauth.auth']['info']['nickname']
-    x = session[:omniauth_data]
-    session[:user_id] = session[:omniauth_data]['uid']
-    binding.pry
+    session[:user_id] = auth['uid']
+    @user = User.from_omniauth(auth)
+    if @user.save
+      session[:user_id] = @user.id
+    else
+    end
     redirect_to '/'
-
-
-    # redirect_to root_path
-    # @user = User.find_or_create_from_auth_hash(auth_hash)
-    # self.current_user = @user
-    # redirect_to '/'
-
-    # user_info = request.env['omniauth.auth']
-
-    # session[:username] = params[:username]
-    # redirect_to '/'
 
     # user = User.find_by(username: params[:username])
     # authenticated = user.try(:authenticate, params[:password])
@@ -36,8 +26,6 @@ class SessionsController < ApplicationController
   # end
 
   def omniauth
-    binding.pry
-
     @user = User.from_omniauth(auth)
     @user.save
     session[:user_id] = @user.id
@@ -46,7 +34,7 @@ class SessionsController < ApplicationController
   
   private
 
-  def auth_hash
+  def auth
     request.env['omniauth.auth']
   end
 end
