@@ -1,26 +1,10 @@
 <p><strong>----------- Current User Session: ---------</strong></p>
-<% if session[:name] %>
-    <% name = session[:name] %>
-    <p>Currently: <%= name -%> </p>
-    <p>Authenticated via  <%= session[:omniauth_data]['provider'] %></p>
-
-    The raw data returned from Omniauth were:
-    <pre>
-        <%#= session[:omniauth_data] %>
-        Nickname: <%= session[:omniauth_data]['info']['nickname'] %>
-        User ID: <%= session[:omniauth_data]['uid'] %>
-    </pre>
-<% end %>
-
-<% if session[:user_id] %>
-    The raw data returned from Omniauth were:<br>
-        <%= @user = User.find(session[:user_id]) %><br>
+        <% @user = User.find(session[:user_id]) %><br>
         Username: <%= @user.username %><br>
         User ID: <%= @user.id %><br>
         <%#= image_tag session[:omniauth_data]['info']['image'] %><br> 
-<% end %>
-<p><strong>--------------------------------------------------</strong></p>
 
 <%= link_to "Logout", '/logout' %><br>
 <%#= link_to "Log out", sessions_path, method: "delete" %>
+<p><strong>--------------------------------------------------</strong></p>
 

@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="navigation-right">  
-        <%= render '/sessions/session' %>
+        <%= render '/sessions/session' if session[:user_id] %>
       </div>
     <%= yield %>
 

@@ -4,10 +4,8 @@ class SessionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :create
    
   def create
-    binding.pry
     if request.env["omniauth.auth"]
       pp request.env['omniauth.auth']
-      session[:user_id] = auth['uid']
       @user = User.from_omniauth(auth)
       if @user.save
         session[:user_id] = @user.id

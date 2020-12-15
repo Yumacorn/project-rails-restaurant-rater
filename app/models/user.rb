@@ -35,8 +35,14 @@ class User < ApplicationRecord
           user.city = 'Melville'
           user.state = 'NY'
         end
-      else
+      elsif auth.provider == "developer"
         where(username: auth.info.email).first_or_initialize do |user|
+          user.username = auth.info.email
+          user.name = auth.info.name
+          user.password = 'Fix'
+          user.age = 50
+          user.city = 'Stony Brook'
+          user.state = 'NY'
         end
       end
     end
