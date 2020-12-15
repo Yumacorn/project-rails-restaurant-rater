@@ -21,11 +21,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    binding.pry
     reset_session
-    session[:user_id] = nil
-    session.delete :username
-    redirect_to '/'
+    redirect_to login_path
   end
 
   def omniauth
