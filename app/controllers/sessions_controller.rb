@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
       render 'new' unless authenticated
     end
     if @user.save
+      binding.pry
+
       session[:user_id] = @user.id
       redirect_to '/'
     end
