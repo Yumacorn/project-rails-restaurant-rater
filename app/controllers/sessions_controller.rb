@@ -5,20 +5,26 @@ class SessionsController < ApplicationController
    
   def create
     if request.env["omniauth.auth"]
-      pp request.env['omniauth.auth']
       @user = User.from_omniauth(auth)
-    else
-      # user login via non omniauth
-      @user = User.find_by(username: params[:username])
-      authenticated = @user.try(:authenticate, params[:password])
-      # return head(:forbidden) unless authenticated
-      render 'new' unless authenticated
-    end
-    if @user.save
       binding.pry
-
-      session[:user_id] = @user.id
-      redirect_to '/'
+      if @user.save
+        session[:user_id] = @user.id
+        redirect_to '/'
+      else
+        render 'new'
+      end
+    else # user login via non omniauth
+      @user = User.find_by(username: params[:username])
+      if @user
+        authenticated = @user.try(:authenticate, params[:password])
+        # return head(:forbidden) unless authenticated
+        if authenticated
+          session[:user_id] = @user.id
+          redirect_to '/'
+        end
+      else
+        render 'new'
+      end
     end
   end
 
