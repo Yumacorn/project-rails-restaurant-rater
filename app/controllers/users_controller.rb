@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+    before_action :authentication_required
+
     def index
         @users = User.all
     end
@@ -10,7 +12,6 @@ class UsersController < ApplicationController
     def create
         # @user = User.new(user_params(:name, :username, :email, :password, :city, :state, :age))
         @user = User.new(user_params)
-        binding.pry
         if @user.save
             redirect_to user_path(@user)
         else

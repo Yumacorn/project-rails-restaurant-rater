@@ -7,18 +7,17 @@ class SessionsController < ApplicationController
     if request.env["omniauth.auth"]
       pp request.env['omniauth.auth']
       @user = User.from_omniauth(auth)
-      if @user.save
-        session[:user_id] = @user.id
-      end
     else
       # user login via non omniauth
-      user = User.find_by(username: params[:username])
-      authenticated = user.try(:authenticate, params[:password])
-      return head(:forbidden) unless authenticated
-      @user = user
-      session[:user_id] = @user.id
+      @user = User.find_by(username: params[:username])
+      authenticated = @user.try(:authenticate, params[:password])
+      # return head(:forbidden) unless authenticated
+      render 'new' unless authenticated
     end
-    redirect_to '/'
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to '/'
+    end
   end
 
   def destroy

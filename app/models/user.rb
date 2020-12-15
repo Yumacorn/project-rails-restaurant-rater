@@ -4,14 +4,18 @@ class User < ApplicationRecord
     has_secure_password
     
     # Validations
-    # before_validation { self.state = self.state.upcase }
+
+    before_validation {
+      if self.state
+       self.state = self.state.upcase
+      end 
+      }
 
     validates :name, presence: true
     validates :username, presence: true, uniqueness: true
-    validates :age, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 99} 
+    validates :age, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 99}
     validates :city, presence: true
-    validates :state, presence: true, inclusion: { in: US_STATES,
-        message: "%{value} is not a valid US state" }
+    validates :state, presence: true, inclusion: { in: US_STATES, message: "%{value} is not a valid US state" }
 
     def self.from_omniauth(auth)
       #if github, this is how to pull username request.env['omniauth.auth']['info']['nickname']
@@ -45,14 +49,5 @@ class User < ApplicationRecord
           user.state = 'NY'
         end
       end
-    end
-
-    def self.logged_in?(session_id)
-      if @user = User.find(session_id)
-        @user
-      else
-        nil
-      end
-    end
-    
+    end   
 end
