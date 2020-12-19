@@ -23,7 +23,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 
 # Adding Devise for authentication w/ OmniAuth
-gem 'devise'
+# gem 'devise'
 
 # Use OmniAuth more: https://github.com/omniauth/omniauth
 gem 'omniauth'
