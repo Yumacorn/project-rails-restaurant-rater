@@ -4,10 +4,11 @@
         Email: <%= @user.email %><br>
         Name: <%= @user.name %><br>
         User ID: <%= @user.id %><br>
-        <#% binding.pry %>
         <% if session[:omniauth_data] %>
                 <%= image_tag session[:omniauth_data]['info']['image'] %><br> 
         <% end %>
 
-<%= link_to "Logout", '/logout' %><br>
+<%= form_tag("/logout", method:'delete' ) do %>
+        <%= submit_tag "Logout" %>
+<% end %>
 <p><strong>--------------------------------------------------</strong></p>
