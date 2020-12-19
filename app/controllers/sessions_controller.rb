@@ -6,11 +6,11 @@ class SessionsController < ApplicationController
   def create
     if request.env["omniauth.auth"]
       @user = User.from_omniauth(auth)
-      binding.pry
       if @user.save
         session[:user_id] = @user.id
         redirect_to '/'
       else
+        binding.pry
         render 'new'
       end
     else # user login via non omniauth
