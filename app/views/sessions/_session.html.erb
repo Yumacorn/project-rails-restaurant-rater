@@ -7,8 +7,7 @@
         <% if session[:omniauth_data] %>
                 <%= image_tag session[:omniauth_data]['info']['image'] %><br> 
         <% end %>
-
-<%= form_tag("/logout", method:'delete' ) do %>
-        <%= submit_tag "Logout" %>
-<% end %>
+        <%= form_tag("/logout", method:'delete' ) do %>
+                <%= submit_tag "Logout" %>
+        <% end %>
 <p><strong>--------------------------------------------------</strong></p>
