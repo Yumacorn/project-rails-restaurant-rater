@@ -10,7 +10,6 @@ class UsersController < ApplicationController
     end
 
     def create
-        # @user = User.new(user_params(:name, :username, :email, :password, :city, :state, :age))
         @user = User.new(user_params)
         if @user.save
             redirect_to user_path(@user)
@@ -21,7 +20,6 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        # @user.update(user_params(:name, :username, :email, :password, :city, :state, :age))
         @user.update(user_params)
         redirect_to user_path(@user)
     end

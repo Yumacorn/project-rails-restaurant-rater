@@ -2,7 +2,6 @@
 <h3>Here is where you can create a new User </h3>
 
 <%= render 'user' %>
-<p>uuu<%= params.inspect %></p>
 
 <p><%= params.inspect %></p>
-<p><%= @user.errors.messages if @user%></p>
+<p><%= pp @user.errors.messages if @user%></p>

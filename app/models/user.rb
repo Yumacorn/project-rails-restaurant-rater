@@ -20,7 +20,6 @@ class User < ApplicationRecord
     def self.from_omniauth(auth)
       #if github, this is how to pull username request.env['omniauth.auth']['info']['nickname']
       #elsif google, this is how to pull email request.env['omniauth.auth']['info']['email']
-      binding.pry
       if auth.provider == "github"
         where(username: auth.info.nickname).first_or_initialize do |user|
           user.email = auth.info.email

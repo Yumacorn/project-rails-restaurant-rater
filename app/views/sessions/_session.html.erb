@@ -1,6 +1,7 @@
 <p><strong>----------- Current User Session: ---------</strong></p>
         <% @user = User.find(session[:user_id]) %><br>
         Username: <%= @user.username %><br>
+        Email: <%= @user.email %><br>
         Name: <%= @user.name %><br>
         User ID: <%= @user.id %><br>
         <%#= image_tag session[:omniauth_data]['info']['image'] %><br> 

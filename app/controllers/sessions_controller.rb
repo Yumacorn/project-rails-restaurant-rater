@@ -10,14 +10,12 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to '/'
       else
-        binding.pry
         render 'new'
       end
     else # user login via non omniauth
       @user = User.find_by(username: params[:username])
       if @user
         authenticated = @user.try(:authenticate, params[:password])
-        # return head(:forbidden) unless authenticated
         if authenticated
           session[:user_id] = @user.id
           redirect_to '/'
@@ -31,13 +29,6 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     redirect_to login_path
-  end
-
-  def omniauth
-    @user = User.from_omniauth(auth)
-    @user.save
-    session[:user_id] = @user.id
-    redirect_to home_path
   end
   
   private
