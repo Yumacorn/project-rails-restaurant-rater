@@ -9,7 +9,9 @@
     </li>
 </ul>
 
-<%= link_to 'Make A New Review', new_user_review_path(@user) %>
+<%= link_to 'Make A New Review', new_user_review_path(@user) %><br>
+<%= link_to "Add Restaurant", new_restaurant_path %>
+
 <h3>My Reviews </h3>
 <div><span class="tab">Number of Reviews: <%= @user.reviews.size %></div><br>
 

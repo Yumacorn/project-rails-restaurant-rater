@@ -1,3 +1,13 @@
 <h1>Welcome to Restaurant Rater!</h1>
 <h3>In this Rails Project, we have a lovely homebrew creation of a restaurant rating app.</h3>
 <p>Please feel free to explore, create a new User, add some Restaurant reviews of your own, and check out some new Ratings while you're here!</p>
+
+<br>    
+<h4>Current stats:</h4>
+<ul>
+    <p># of Restaurants: <%= Restaurant.all.size %></p>
+    <p># of Users: <%= User.all.size %></p>
+    <p># of Reviews Received: <%= Review.all.size %></p>
+</ul>
+
+

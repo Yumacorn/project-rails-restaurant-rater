@@ -1,12 +1,12 @@
 <h1>User List</h1>
-<h3>Below is the full list of <%= @users.size %> Users who have visited Restaurant Rater!</h3>
+<h3>Below is the full list of <%= @users.size %> Users who are registered with Restaurant Rater!</h3>
 
 <ul>
     <% @users.each_with_index do |user, index| %>
         <li>
             <div><strong>User <%= index + 1%>:</strong> "<%= user.username %>"</div>
             <span class="tab">Name: <%= user.name %><span class="tab">Age: <%= user.age %><br>
-            <div><% if user.city && user.state %> <span class="tab">Location: <%= user.city %>, <%= user.state %> <% end %></div>
+            <div><span class="tab"><%= user.located %></div>
             <div><span class="tab"><span class="tab">(<%= user.reviews.size %>) Total Reviews</div><br>
         </li>
     <% end %>

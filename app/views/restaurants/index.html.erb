@@ -1,7 +1,6 @@
 <h1>Restaurant List</h1>
 <h3>Below is the full list of <%= @restaurants.size %> Restaurant kept on Restaurant Rater!</h3>
 
-<p><%= link_to "Add Restaurant", new_restaurant_path %></p>
 <ul>
     <% @restaurants.each_with_index do |restaurant, index| %>
         <li>
@@ -19,7 +18,7 @@
                 <% else %>
                     No
                 <% end %>
-            <div><span class="tab"> Reviews: <%= restaurant.reviews.size %> | Average: <%= restaurant.avg_rating %> stars</div>
+            <div><span class="tab"> Average: <%= restaurant.avg_rating %> (<%= restaurant.reviews.size %> Reviews)</div>
             </div><br>
         </li>
     <% end %>

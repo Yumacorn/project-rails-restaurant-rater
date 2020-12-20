@@ -22,9 +22,9 @@ class Restaurant < ApplicationRecord
     end
     def avg_rating
         if total_rating == 0
-            return "Not Yet Rated"
+            return "Not Rated Yet"
         else
-            (total_rating/self.reviews.size).round(2)
+            return "#{(total_rating/self.reviews.size).round(2)} stars"
         end
     end
 end
