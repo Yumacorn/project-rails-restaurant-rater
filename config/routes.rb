@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
 
   resources :users, only: [:new, :create, :index, :show, :edit, :update] do
-    resources :reviews, only: [:new, :create, :index]
+    resources :reviews
   end
   resources :restaurants do
     resources :reviews, only: [:new, :create, :index]
