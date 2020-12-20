@@ -1,6 +1,4 @@
 class SessionsController < ApplicationController
-  # before_action :require_login
-  # skip_before_action :require_login, only: [:index]
   skip_before_action :verify_authenticity_token, only: :create
    
   def create
@@ -14,7 +12,7 @@ class SessionsController < ApplicationController
         render 'new'
       end
     else # user login via non omniauth
-      @user = User.find_by(username: params[:username])
+      @user = User.find_by(email: params[:email])
       if @user
         authenticated = @user.try(:authenticate, params[:password])
         if authenticated
