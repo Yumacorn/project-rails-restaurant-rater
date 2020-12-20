@@ -9,21 +9,24 @@
     </li>
 </ul>
 
+<%= link_to 'Make A New Review', new_user_review_path(@user) %>
 <h3>My Reviews </h3>
 <div><span class="tab">Number of Reviews: <%= @user.reviews.size %></div><br>
 
-<ul>
-    <li>
-        <% @user.reviews.each_with_index do |review, index| %>
-            <div class='button-line'>[Review <%= index + 1%>]
-            <%# button_to documentation notes that by default, it will have action of :post. Adjusted below for "edit" button to be get request to function#%>
-    
-            <%= button_to "Edit", edit_review_path(review), method: :get %>
-            <%= button_to "Delete", review, method: :delete %></div>
-            <div><span class="tab"> Restaurant: <%= review.restaurant.name %></div>
-            <div><span class="tab">Rating: <%= review.rating %> stars</div>
-            <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab">-<%= review.user.username %></div><br>
-            <br><br>
-        <% end %>        
-    </li>
-</ul>
+<% if @user.reviews != [] %>
+    <ul>
+        <li>
+            <% @user.reviews.each_with_index do |review, index| %>
+                <div class='button-line'>[Review <%= index + 1%>]
+                <%# button_to documentation notes that by default, it will have action of :post. Adjusted below for "edit" button to be get request to function#%>
+        
+                <%= button_to "Edit", edit_review_path(review), method: :get %>
+                <%= button_to "Delete", review, method: :delete %></div>
+                <div><span class="tab"> Restaurant: <%= review.restaurant.name %></div>
+                <div><span class="tab">Rating: <%= review.rating %> stars</div>
+                <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab"></div><br>
+                <br><br>
+            <% end %>        
+        </li>
+    </ul>
+<% end %>

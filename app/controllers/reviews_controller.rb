@@ -17,7 +17,11 @@ class ReviewsController < ApplicationController
 
     def create
         @review = Review.create(review_params)
-        redirect_to review_path(@review)
+        if @review.save
+            redirect_to review_path(@review)
+        else
+            render :new
+        end      
     end
 
     def edit

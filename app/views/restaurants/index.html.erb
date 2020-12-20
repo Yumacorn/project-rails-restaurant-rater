@@ -1,12 +1,12 @@
 <h1>Restaurant List</h1>
-<h2>Below is the full list of Restaurant kept on Restaurant Rater!</h2>
+<h3>Below is the full list of <%= @restaurants.size %> Restaurant kept on Restaurant Rater!</h3>
 
 <p><%= link_to "Add Restaurant", new_restaurant_path %></p>
 <ul>
     <% @restaurants.each_with_index do |restaurant, index| %>
         <li>
-            <div>[Review <%= index + 1%>] <span class="tab"> Restaurant: <%= restaurant.name %></div>
-            <div> <span class="tab">City: <%= restaurant.city %> <span class="tab">State: <%= restaurant.state %></div>
+            <div><strong>Restaurant: <%= restaurant.name %></strong></div>
+            <div> <span class="tab">Location: <%= restaurant.city %>, <%= restaurant.state %></div>
             <div><span class="tab"> Dine-in: 
                 <% if restaurant.dine_in %>
                     Yes
@@ -19,8 +19,7 @@
                 <% else %>
                     No
                 <% end %>
-            <span class="tab"> Number of Reviews: <%= restaurant.reviews.size %>
-            <div>Average Rating (1-5 stars): <%= restaurant.avg_rating %></div><br>
+            <div><span class="tab"> Reviews: <%= restaurant.reviews.size %> | Average: <%= restaurant.avg_rating %> stars</div>
             </div><br>
         </li>
     <% end %>
