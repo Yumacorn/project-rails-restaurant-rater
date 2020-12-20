@@ -15,3 +15,9 @@
     <%= submit_tag "Login" %>
 <% end %>
 
+<div class="flash">
+      <% if flash[:message] %>
+        <%= flash[:message] %>
+      <% end %>
+</div>
+
