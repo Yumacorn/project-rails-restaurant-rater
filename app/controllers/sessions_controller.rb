@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to '/'
       else
-        flash[:message] = "That email/password is not valid"
+        @error = "That email/password is not valid"
         render 'new'
       end
     else # user login via non omniauth
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
           redirect_to '/'
         end
       else
-        flash[:message] = "That email/password is not valid"
+        @error = "That email/password is not valid"
         render 'new'
       end
     end
