@@ -1,5 +1,6 @@
-<h1>User Page</h1>
-<h2>Profile</h2>
+<h1><%= @user.name %> User Page</h1>
+<h2>Profile</h2><%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
+
 
 <ul>
     <li>
