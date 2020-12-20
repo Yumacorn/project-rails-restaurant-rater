@@ -16,12 +16,15 @@
           <a href="/users">Users</a>
           <a href="/restaurants">Restaurants</a>
           <a href="/reviews">Reviews</a>
-          <% if !logged_in? %>
-            <div class="navigation-right">  
-              <%= link_to "Log In", login_path %>
-              <%= link_to "Sign Up", new_user_path %>
-            </div> 
-          <% end %>
+          <div class="navigation-right">  
+            <% if !logged_in? %>
+                <%= link_to "Log In", login_path %>
+                <%= link_to "Sign Up", new_user_path %>
+            <% else %>
+                <%= link_to "My Profile", user_path(current_user) %>
+            <% end %>
+          </div> 
+
         </ul>
       </div>
       <div class="navigation-right">  
