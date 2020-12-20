@@ -5,7 +5,7 @@
     <% @restaurants.each_with_index do |restaurant, index| %>
         <li>
             <div><strong>Restaurant: <%= restaurant.name %></strong></div>
-            <div> <span class="tab">Location: <%= restaurant.city %>, <%= restaurant.state %></div>
+            <div> <span class="tab"><%= restaurant.located %></div>
             <div><span class="tab"> Dine-in: 
                 <% if restaurant.dine_in %>
                     Yes
@@ -18,7 +18,8 @@
                 <% else %>
                     No
                 <% end %>
-            <div><span class="tab"> Average: <%= restaurant.avg_rating %> (<%= restaurant.reviews.size %> Reviews)</div>
+            <div><span class="tab"> Average: <%= restaurant.avg_rating %> (<%= restaurant.reviews.size %> Reviews) <%= link_to "See Reviews", restaurant_reviews_path(restaurant) %></div>
+            <div><span class="tab"> <%= link_to "Learn More", restaurant_path(restaurant) %></div>
             </div><br>
         </li>
     <% end %>

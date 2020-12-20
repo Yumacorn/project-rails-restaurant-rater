@@ -1,8 +1,7 @@
 <h1>Restaurant Profile - <%= @restaurant.name %></h1>
 
 <ul>
-    <div>City: <%= @restaurant.city %></div>
-    <div>State: <%= @restaurant.state %></div><br>
+    <%= @restaurant.located %>
     <div><span class="tab"> Dine-in: 
         <% if @restaurant.dine_in %>
             Yes
@@ -15,7 +14,9 @@
         <% else %>
             No
         <% end %></div><br>
+    <div>--------------------------------------------------------</div>
     <div>Number of Reviews: <%= @restaurant.reviews.size %></div><br>
     <div>Total Rating: <%= @restaurant.total_rating %></div><br>
     <div>Average Rating (1-5 stars): <%= @restaurant.avg_rating %></div><br>
+    <%= link_to "See Reviews", restaurant_reviews_path(@restaurant) %>
 </ul>

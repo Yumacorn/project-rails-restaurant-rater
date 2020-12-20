@@ -1,12 +1,14 @@
-<h1>Reviews List</h1>
-<h2>Below is the full list of Reviews kept on Restaurant Rater!</h2>
+<h1><% if @restaurant %><%= @restaurant.name %><% end %> Reviews List</h1>
+<h2>Below is the list of Reviews kept on Restaurant Rater!</h2>
 
 <ul>
     <% @reviews.each_with_index do |review, index| %>
-        <div class='button-line'>[Review <%= index + 1%>]</div>
-        <div><span class="tab"> Restaurant: <%= review.restaurant.name %></div>
-        <div><span class="tab">Rating: <%= review.rating %> stars</div>
-        <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab">-<%= review.user.username %></div><br>
-        <br>
+        <li>
+            <div class='button-line'>[Review <%= index + 1%>]</div>
+            <div><span class="tab"> Restaurant: <%= review.restaurant.name %></div>
+            <div><span class="tab">Rating: <%= review.rating %> stars</div>
+            <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab">-<%= review.user.username %></div><br>
+            <br>
+        </li>   
     <% end %>
 </ul>
