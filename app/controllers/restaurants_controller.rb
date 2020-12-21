@@ -1,10 +1,6 @@
 class RestaurantsController < ApplicationController
     def index
-        @restaurants = Restaurant.all
-        if params[:restaurants] && params[:restaurants][:filter_by_state].present?
-            @restaurants = @restaurants.filter_by_state(params[:restaurants][:filter_by_state])
-            render 'index'
-        end
+        @restaurants = Restaurant.filter(params, "restaurants")
     end
 
     def show

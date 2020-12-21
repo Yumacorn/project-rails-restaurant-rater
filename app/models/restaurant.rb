@@ -1,6 +1,7 @@
 class Restaurant < ApplicationRecord
     has_many :reviews
     has_many :users, through: :reviews
+    include Filterable
 
     # Validations
     before_validation { self.state = self.state.upcase }
@@ -33,16 +34,15 @@ class Restaurant < ApplicationRecord
         end
     end
 
-    def self.filter(f)
-        binding.pry
-        @restaurants = Restaurant.state(f)
-    end
-    # def self.list_by_state
-        # a = Restaurant.group(:state).count
-        # m = []
-        # a.each do |state, num|
-        #     m << "#{state}: #{num}"
-        # end
-        # m
+    # def self.filter(f)
+    #     binding.pry
+    #     @restaurants = Restaurant.state(f)
     # end
+
+    def self.available_states
+        # binding.pry
+        # Restaurant.group(:state).count.keys
+        Restaurant.group(:state)
+    end
+    
 end

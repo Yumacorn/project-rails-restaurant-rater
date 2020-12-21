@@ -1,11 +1,15 @@
 <h1>Restaurant List</h1>
-<h3>Below is the full list of <%= @restaurants.size %> Restaurant kept on Restaurant Rater!</h3>
+<h3>Below is the list of <%= @restaurants.size %> Restaurant kept on Restaurant Rater!</h3>
 
 <h4>View Filters: 
 <%= form_for :restaurants, method: :get do |f| %>
     <%= f.label :state %>
-    <%= f.collection_select(:filter_by_state, Restaurant.all, :state, :state) %>
+    <%= f.collection_select(:filter_by_state, Restaurant.available_states, :state, :state, include_blank: true) %>
+    <%#= f.grouped_collection_select(:filter_by_state, Restaurant.all, Restaurant.available_states, :available_states, :state, include_blank: true) %>
     <%= f.submit 'Filter' %>
+<% end %></h4>  
+<%= form_for :restaurants, method: :get do |f| %>
+    <%= f.submit 'Clear Filters' %>
 <% end %></h4>  
 
 <ul>
