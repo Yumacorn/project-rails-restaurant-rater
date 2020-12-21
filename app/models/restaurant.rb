@@ -12,7 +12,9 @@ class Restaurant < ApplicationRecord
     validates :dine_in, inclusion: { in: [true, false] , message: "%{value} must be true or false"}
     validates :take_out, inclusion: { in: [true, false] }
 
-
+    scope :alpha_z, -> { order(name: :desc) }
+    scope :alpha_a, -> { order(name: :asc) }
+    
     def total_rating
         total = 0.0
         self.reviews.each {|r|

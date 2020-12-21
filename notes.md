@@ -40,7 +40,10 @@ Review belongs_to user, belongs_to restaurant
 -nested attributes for user/reviews, restaurant/reviews (acceps_nested_attributes)
     -Restaurant.find_or_create_by(params)
 
--search/scope FILTER by City/state
+-scope FILTER by State
+-scope sort by highest/lowest # of reviews (users, restaurants)
+-scope by user
+-show restaurants by dine-in or take-out
 ***Stretch - Follow other users? Favorite their reviews?
 
 -Footer

@@ -18,6 +18,12 @@ class User < ApplicationRecord
     # validates :city, presence: true
     validates :state, inclusion: { in: US_STATES, message: "%{value} is not a valid US state" }, allow_blank: true
 
+      #scope option to order by name
+      #scope option to sort by highest/lowest review count
+      #scope option to show only by State
+      scope :with_state, -> (state) { where("STATE = ?", state) }
+
+
     def self.from_omniauth(auth)
       #if github, this is how to pull username request.env['omniauth.auth']['info']['nickname']
       #elsif google, this is how to pull email request.env['omniauth.auth']['info']['email']
