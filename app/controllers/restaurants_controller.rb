@@ -1,6 +1,20 @@
 class RestaurantsController < ApplicationController
     def index
         @restaurants = Restaurant.all
+        if params[:state].present?
+            @restaurants = @restaurant.state(params[:state])
+        end
+        # case params[:scope]  
+        # when "state"
+        #   if (params[:format] == "7")
+        #     @jobs = Job.by_num_days_past("7")
+        #   elsif (params[:format] == "30")
+        #     @jobs = Job.by_num_days_past("30")
+        #   elsif (params[:format] == "60")
+        #     @jobs = Job.by_num_days_past("60")
+        #   else
+        #     @jobs = Job.all
+        #   end 
     end
 
     def show

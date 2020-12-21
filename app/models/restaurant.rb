@@ -16,7 +16,7 @@ class Restaurant < ApplicationRecord
     scope :alpha_a, -> { order(name: :asc) }
     scope :dine_in, -> { where(dine_in: true) }
     scope :take_out, -> { where(take_out: true) }
-
+    scope :state, -> (s) { where("STATE = ?", s) } 
     
     def total_rating
         total = 0.0
@@ -33,6 +33,10 @@ class Restaurant < ApplicationRecord
         end
     end
 
+    def self.filter(f)
+        binding.pry
+        @restaurants = Restaurant.state(f)
+    end
     # def self.list_by_state
         # a = Restaurant.group(:state).count
         # m = []
