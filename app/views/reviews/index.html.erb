@@ -1,6 +1,17 @@
 <h1><% if @restaurant %><%= @restaurant.name %><% end %> Reviews List</h1>
 <h2>Below is the list of Reviews kept on Restaurant Rater!</h2>
 
+<h4>View Filters: 
+<%= form_for :reviews, method: :get do |f| %>
+    <%= f.label :user %>
+    <%= f.collection_select(:filter_by_user, Review.all, :user_id, :name_of_user, include_blank: true) %>
+    <%#= f.grouped_collection_select(:filter_by_state, Restaurant.all, Restaurant.available_states, :available_states, :state, include_blank: true) %>
+    <%= f.submit 'Filter' %>
+<% end %></h4>  
+<%= form_for :reviews, method: :get do |f| %>
+    <%= f.submit 'Clear Filters' %>
+<% end %></h4>  
+
 <ul>
     <% @reviews.each_with_index do |review, index| %>
         <li>

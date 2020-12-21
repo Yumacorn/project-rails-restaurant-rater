@@ -17,7 +17,7 @@ class Restaurant < ApplicationRecord
     scope :filter_alpha_a, -> { order(name: :asc) }
     scope :filter_dine_in, -> { where(dine_in: true) }
     scope :filter_take_out, -> { where(take_out: true) }
-    scope :filter_by_state, -> (s="NY") { where("STATE = ?", s) } 
+    # scope :filter_by_state, -> (s="NY") { where("STATE = ?", s) } 
     
     def total_rating
         total = 0.0
@@ -32,17 +32,6 @@ class Restaurant < ApplicationRecord
         else
             return "#{(total_rating/self.reviews.size).round(2)} stars"
         end
-    end
-
-    # def self.filter(f)
-    #     binding.pry
-    #     @restaurants = Restaurant.state(f)
-    # end
-
-    def self.available_states
-        # binding.pry
-        # Restaurant.group(:state).count.keys
-        Restaurant.group(:state)
     end
     
 end

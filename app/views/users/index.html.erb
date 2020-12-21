@@ -1,6 +1,16 @@
 <h1>User List</h1>
 <h3>Below is the full list of <%= @users.size %> Users who are registered with Restaurant Rater!</h3>
 
+<h4>View Filters: 
+<%= form_for :users, method: :get do |f| %>
+    <%= f.label :state %>
+    <%= f.collection_select(:filter_by_state, User.available_states, :state, :state) %>
+    <%= f.submit 'Filter' %>
+<% end %></h4>  
+<%= form_for :users, method: :get do |f| %>
+    <%= f.submit 'Clear Filters' %>
+<% end %></h4>  
+
 <ul>
     <% @users.each_with_index do |user, index| %>
         <li>

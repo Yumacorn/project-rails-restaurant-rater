@@ -3,6 +3,8 @@ class User < ApplicationRecord
     has_many :restaurants, through: :reviews
     has_secure_password
     
+    include Filterable
+
     # Validations
 
     before_validation {
@@ -20,10 +22,7 @@ class User < ApplicationRecord
 
       #scope option to order by name
       #scope option to sort by highest/lowest review count
-      #scope option to show only by State
-      scope :with_state, -> (state) { where("STATE = ?", state) }
-
-
+    
     def self.from_omniauth(auth)
       #if github, this is how to pull username request.env['omniauth.auth']['info']['nickname']
       #elsif google, this is how to pull email request.env['omniauth.auth']['info']['email']
@@ -43,4 +42,9 @@ class User < ApplicationRecord
         end
       end
     end   
+
+    def self.names
+      "Ryan"
+      binding.pry
+    end
 end
