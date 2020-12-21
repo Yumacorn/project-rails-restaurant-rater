@@ -5,9 +5,21 @@
 <br>    
 <h4>Current stats:</h4>
 <ul>
-    <p># of Restaurants: <%= Restaurant.all.size %></p>
     <p># of Users: <%= User.all.size %></p>
     <p># of Reviews Received: <%= Review.all.size %></p>
+    <p><span class="tab">by State:
+        <ul>
+            <% Review.joins(:restaurant).group(:state).count.each do |state, num| %>
+            <li><%= "#{state}: #{num}" %></li>
+            <% end %>
+        </ul></p>
+    <p># of Restaurants: <%= Restaurant.all.size %></p>
+    <p><span class="tab">by State:
+        <ul>
+            <% Restaurant.group(:state).count.each do |state, num| %>
+            <li><%= "#{state}: #{num}" %></li>
+            <% end %>
+        </ul></p>
 </ul>
 
 

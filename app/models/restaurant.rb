@@ -32,4 +32,13 @@ class Restaurant < ApplicationRecord
             return "#{(total_rating/self.reviews.size).round(2)} stars"
         end
     end
+
+    # def self.list_by_state
+        # a = Restaurant.group(:state).count
+        # m = []
+        # a.each do |state, num|
+        #     m << "#{state}: #{num}"
+        # end
+        # m
+    # end
 end

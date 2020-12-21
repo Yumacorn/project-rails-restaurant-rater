@@ -7,7 +7,6 @@
         <div><span class="tab">Name: <%= @user.name %> <span class="tab">Age: <%= @user.age %> <span class="tab">City: <%= @user.city %> <span class="tab">State: <%= @user.state %></div>
     </li>
 </ul>
-<%# binding.pry %>
 <% if @user == User.find(current_user) %>
     <h2>Profile</h2><%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
     <%= link_to 'Make A New Review', new_user_review_path(@user) %><br>
