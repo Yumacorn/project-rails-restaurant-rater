@@ -1,9 +1,10 @@
 class RestaurantsController < ApplicationController
     def index
         @restaurants = Restaurant.all
-        # if params[:state].present?
-        #     @restaurants = @restaurant.state(params[:state])
-        # end
+        if params[:restaurants] && params[:restaurants][:filter_by_state].present?
+            @restaurants = @restaurants.filter_by_state(params[:restaurants][:filter_by_state])
+            render 'index'
+        end
     end
 
     def show
@@ -35,6 +36,7 @@ class RestaurantsController < ApplicationController
 
     private
     def restaurant_params
-        params.require(:restaurant).permit(:name, :city, :state, :dine_in, :take_out)
+        binding.pry
+        params.require(:restaurant).permit(:name, :city, :state, :dine_in, :take_out, :filter_by_state)
     end
 end

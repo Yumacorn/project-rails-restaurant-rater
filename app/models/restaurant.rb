@@ -12,11 +12,11 @@ class Restaurant < ApplicationRecord
     validates :dine_in, inclusion: { in: [true, false] , message: "%{value} must be true or false"}
     validates :take_out, inclusion: { in: [true, false] }
 
-    scope :alpha_z, -> { order(name: :desc) }
-    scope :alpha_a, -> { order(name: :asc) }
-    scope :dine_in, -> { where(dine_in: true) }
-    scope :take_out, -> { where(take_out: true) }
-    scope :state, -> (s) { where("STATE = ?", s) } 
+    scope :filter_alpha_z, -> { order(name: :desc) }
+    scope :filter_alpha_a, -> { order(name: :asc) }
+    scope :filter_dine_in, -> { where(dine_in: true) }
+    scope :filter_take_out, -> { where(take_out: true) }
+    scope :filter_by_state, -> (s="NY") { where("STATE = ?", s) } 
     
     def total_rating
         total = 0.0

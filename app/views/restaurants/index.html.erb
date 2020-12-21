@@ -1,11 +1,12 @@
 <h1>Restaurant List</h1>
 <h3>Below is the full list of <%= @restaurants.size %> Restaurant kept on Restaurant Rater!</h3>
 
-<% form_for(@restaurants) do |f| %>
+<h4>View Filters: 
+<%= form_for :restaurants, method: :get do |f| %>
     <%= f.label :state %>
-    <%= f.collection_select(:state, Restaurant.all, :state, :state) %>
-    <%= f.submit %>
-<% end %>
+    <%= f.collection_select(:filter_by_state, Restaurant.all, :state, :state) %>
+    <%= f.submit 'Filter' %>
+<% end %></h4>  
 
 <ul>
     <% @restaurants.each_with_index do |restaurant, index| %>
