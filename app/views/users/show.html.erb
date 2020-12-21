@@ -1,6 +1,4 @@
 <h1><%= @user.name %> User Page</h1>
-<h2>Profile</h2><%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
-
 
 <ul>
     <li>
@@ -9,11 +7,14 @@
         <div><span class="tab">Name: <%= @user.name %> <span class="tab">Age: <%= @user.age %> <span class="tab">City: <%= @user.city %> <span class="tab">State: <%= @user.state %></div>
     </li>
 </ul>
+<%# binding.pry %>
+<% if @user == User.find(current_user) %>
+    <h2>Profile</h2><%= button_to "Edit Profile", edit_user_path(@user), method: :get %>
+    <%= link_to 'Make A New Review', new_user_review_path(@user) %><br>
+    <%= link_to "Add Restaurant", new_restaurant_path %>
+<% end %>
 
-<%= link_to 'Make A New Review', new_user_review_path(@user) %><br>
-<%= link_to "Add Restaurant", new_restaurant_path %>
-
-<h3>My Reviews </h3>
+<h3> Reviews </h3>
 <div><span class="tab">Number of Reviews: <%= @user.reviews.size %></div><br>
 
 <% if @user.reviews != [] %>
@@ -21,10 +22,12 @@
         <li>
             <% @user.reviews.each_with_index do |review, index| %>
                 <div class='button-line'>[Review <%= index + 1%>]
-                <%# button_to documentation notes that by default, it will have action of :post. Adjusted below for "edit" button to be get request to function#%>
-        
-                <%= button_to "Edit", edit_review_path(review), method: :get %>
-                <%= button_to "Delete", review, method: :delete %></div>
+                    <%# button_to documentation notes that by default, it will have action of :post. Adjusted below for "edit" button to be get request to function#%>
+                    <% if @user == User.find(current_user) %>
+                        <%= button_to "Edit", edit_review_path(review), method: :get %>
+                        <%= button_to "Delete", review, method: :delete %>
+                    <% end %>
+                </div>
                 <div><span class="tab"> Restaurant: <%= review.restaurant.name %></div>
                 <div><span class="tab">Rating: <%= review.rating %> stars</div>
                 <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab"></div><br>

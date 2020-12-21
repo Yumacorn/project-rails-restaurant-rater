@@ -22,7 +22,7 @@ Restaurant.create(name: "California Pizza Kitchen", city: "Davon", state: "CA", 
 
 
 Review.create(user_id: 1, restaurant_id: 1, rating: 5, dining_method: "Dine In", comment: "Service was fast and speedy, so very clean")
-Review.create(user_id: 1, restaurant_id: 2, rating: 5, dining_method: "Take Out", comment: "This is authentic schezuean food! I'm definitely coming back here")
+Review.create(user_id: 1, restaurant_id: 2, rating: 5, dining_method: "Take Out", comment: "This is authentic schezuean food! I'm coming back here")
 Review.create(user_id: 1, restaurant_id: 3, rating: 5, dining_method: "Dine In", comment: "Nice")
 Review.create(user_id: 1, restaurant_id: 4, rating: 5, dining_method: "Take Out", comment: "Super duper!")
 Review.create(user_id: 1, restaurant_id: 5, rating: 5, dining_method: "Take Out", comment: "My family liked it")
