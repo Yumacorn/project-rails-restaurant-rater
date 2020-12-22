@@ -32,7 +32,6 @@ class RestaurantsController < ApplicationController
 
     private
     def restaurant_params
-        binding.pry
         params.require(:restaurant).permit(:name, :city, :state, :dine_in, :take_out, :filter_by_state)
     end
 end

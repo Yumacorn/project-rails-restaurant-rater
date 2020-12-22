@@ -5,7 +5,6 @@
 <%= form_for :restaurants, method: :get do |f| %>
     <%= f.label :state %>
     <%= f.collection_select(:filter_by_state, Restaurant.available_states, :state, :state, include_blank: true) %>
-    <%#= f.grouped_collection_select(:filter_by_state, Restaurant.all, Restaurant.available_states, :available_states, :state, include_blank: true) %>
     <%= f.submit 'Filter' %>
 <% end %></h4>  
 <%= form_for :restaurants, method: :get do |f| %>

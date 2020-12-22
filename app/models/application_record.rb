@@ -14,7 +14,6 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def self.available_users
-    # self.group(:user)
     self.joins(:user).group(:name).count.keys
   end
 end

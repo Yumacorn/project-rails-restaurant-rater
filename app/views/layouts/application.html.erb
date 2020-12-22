@@ -12,13 +12,20 @@
   <body>
     <div class="navigation">
         <ul>
-          <a href="/">Home</a>
-          <a href="/users">Users</a>
-          <a href="/restaurants">Restaurants</a>
+          <a href="/">Home</a> |
+          <a href="/users">Users</a> |
+          <a href="/restaurants">Restaurants</a> |
           <a href="/reviews">Reviews</a>
+          <% if logged_in? %>
+          ||
+          <%= link_to 'Add Review', new_user_review_path(current_user) %> |
+          <%= link_to "Add Restaurant", new_restaurant_path %>
+          <% end %>
+
+
           <div class="navigation-right">  
             <% if !logged_in? %>
-                <%= link_to "Log In", login_path %>
+                <%= link_to "Log In", login_path %> |
                 <%= link_to "Sign Up", new_user_path %>
             <% else %>
                 <%= link_to "My Profile", user_path(current_user) %>

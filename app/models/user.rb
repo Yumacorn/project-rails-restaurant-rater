@@ -19,9 +19,6 @@ class User < ApplicationRecord
     validates :age, numericality: {only_integer: true, greater_than_or_equal_to: 1, less_than_or_equal_to: 99}, allow_nil: true
     # validates :city, presence: true
     validates :state, inclusion: { in: US_STATES, message: "%{value} is not a valid US state" }, allow_blank: true
-
-      #scope option to order by name
-      #scope option to sort by highest/lowest review count
     
     def self.from_omniauth(auth)
       #if github, this is how to pull username request.env['omniauth.auth']['info']['nickname']
@@ -42,9 +39,4 @@ class User < ApplicationRecord
         end
       end
     end   
-
-    def self.names
-      "Ryan"
-      binding.pry
-    end
 end

@@ -2,7 +2,6 @@ class UsersController < ApplicationController
     before_action :authentication_required, except: [:new, :create]
 
     def index
-        # @users = User.all
         @users = User.filter(params, "users")
     end
 
