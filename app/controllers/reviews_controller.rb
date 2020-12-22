@@ -1,12 +1,11 @@
 class ReviewsController < ApplicationController
     def index
-        @reviews = Review.filter(params, "reviews")
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @reviews = @user.reviews
         elsif params[:restaurant_id] && @restaurant = Restaurant.find_by_id(params[:restaurant_id])
             @reviews = @restaurant.reviews
         else
-            @reviews = Review.all
+            @reviews = Review.filter(params, "reviews")
         end
     end
 
