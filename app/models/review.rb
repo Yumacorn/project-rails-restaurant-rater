@@ -4,7 +4,7 @@ class Review < ApplicationRecord
   include Filterable
 
 
-  scope :filter_by_user, -> (u="") { where("ID = ?", u) } 
+  scope :filter_by_user, -> (u="") { where("user_id = ?", u) } 
 
   # Validations
   validates :user, presence: true

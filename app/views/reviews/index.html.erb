@@ -4,8 +4,7 @@
 <h4>View Filters: 
 <%= form_for :reviews, method: :get do |f| %>
     <%= f.label :user %>
-    <%= f.collection_select(:filter_by_user, Review.all, :user_id, :name_of_user, include_blank: true) %>
-    <%#= f.grouped_collection_select(:filter_by_state, Restaurant.all, Restaurant.available_states, :available_states, :state, include_blank: true) %>
+    <%= f.collection_select(:filter_by_user, User.all, :id, :name, include_blank: true) %>
     <%= f.submit 'Filter' %>
 <% end %></h4>  
 <%= form_for :reviews, method: :get do |f| %>
@@ -15,7 +14,6 @@
 <ul>
     <% @reviews.each_with_index do |review, index| %>
         <li>
-            <div class='button-line'>[Review <%= index + 1%>]</div>
             <div><span class="tab"> Restaurant: <%= link_to review.restaurant.name, restaurant_path(review.restaurant) %></div>
             <div><span class="tab">Rating: <%= review.rating %> stars</div>
             <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab">-<%= link_to review.user.name, user_path(review.user) %></div><br>
