@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
     def index
-        # binding.pry
+        binding.pry
         if params["search"]
             # binding.pry
             # @restaurants

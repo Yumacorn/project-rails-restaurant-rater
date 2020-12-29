@@ -15,12 +15,12 @@ class Restaurant < ApplicationRecord
     # validates :must
     # validates :is_dining_method, message: "Please adjust confirm at least one method of dining"
 
-    def is_dining_method
-        binding.pry
-        if :dining_in || :take_out
-        #   errors.add(:expiration_date, "can't be in the past")
-        end
-    end
+    # def is_dining_method
+    #     binding.pry
+    #     if :dining_in || :take_out
+    #     #   errors.add(:expiration_date, "can't be in the past")
+    #     end
+    # end
     scope :filter_alpha_z, -> { order(name: :desc) }
     scope :filter_alpha_a, -> { order(name: :asc) }
     scope :filter_dine_in, -> { where(dine_in: true) }

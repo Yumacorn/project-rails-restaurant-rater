@@ -15,8 +15,10 @@ class ApplicationRecord < ActiveRecord::Base
   end
 
   def self.available_users
-    self.joins(:user).group(:name).count.keys
-    #preserve the scope as a chainable call
+    # self.joins(:user).group(:name).count.keys
+    self.joins(:user).group(:name)
+
+    #preserve the scope as a chainable call by using activerecord query only
     #rails guide query, active_record
   end
 end
