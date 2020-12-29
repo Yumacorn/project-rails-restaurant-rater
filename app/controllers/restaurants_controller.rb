@@ -1,5 +1,10 @@
 class RestaurantsController < ApplicationController
     def index
+        # binding.pry
+        if params["search"]
+            # binding.pry
+            # @restaurants
+        end
         @restaurants = Restaurant.filter(params, "restaurants")
     end
 

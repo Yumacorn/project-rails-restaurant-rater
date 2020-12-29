@@ -3,6 +3,7 @@ class ApplicationRecord < ActiveRecord::Base
 
   scope :filter_by_state, -> (s="NY") { where("STATE = ?", s) } 
 
+  #move out of application_record to model/concerns
   def located 
     if (self.city != "" && self.city != nil) && (self.state != "" && self.state != nil)
       "Located: #{self.city} #{self.state}"
@@ -15,5 +16,7 @@ class ApplicationRecord < ActiveRecord::Base
 
   def self.available_users
     self.joins(:user).group(:name).count.keys
+    #preserve the scope as a chainable call
+    #rails guide query, active_record
   end
 end

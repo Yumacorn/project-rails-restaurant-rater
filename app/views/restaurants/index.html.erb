@@ -11,6 +11,14 @@
     <%= f.submit 'Clear Filters' %>
 <% end %></h4>  
 
+<h3>
+<%= form_tag('/restaurants', method: :get) do %>
+    <div><%= label_tag 'Search By Restaurant Name' %>
+    <%= text_field_tag 'search', nil, placeholder: 'Enter search term...'%>
+    <%= submit_tag 'Search' %></div>
+<% end %>
+</h3>
+
 <ul>
     <% @restaurants.each_with_index do |restaurant, index| %>
         <li>

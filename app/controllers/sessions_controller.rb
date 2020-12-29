@@ -18,10 +18,10 @@ class SessionsController < ApplicationController
         if authenticated
           session[:user_id] = @user.id
           redirect_to '/'
+        else
+          @error = "That email/password is not valid"
+          render 'new'
         end
-      else
-        @error = "That email/password is not valid"
-        render 'new'
       end
     end
   end

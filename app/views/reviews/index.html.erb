@@ -4,9 +4,11 @@
 <h4>View Filters: 
 <%= form_for :reviews, method: :get do |f| %>
     <%= f.label :user %>
+    
     <%= f.collection_select(:filter_by_user, User.all, :id, :name, include_blank: true) %>
+    <%#= f.collection_select(:filter_by_user, User.all.where(id: @user).present? ||= User.all, :id, :name, include_blank: true) %>
     <%= f.submit 'Filter' %>
-<% end %></h4>  
+<% end %></h4>
 <%= form_for :reviews, method: :get do |f| %>
     <%= f.submit 'Clear Filters' %>
 <% end %></h4>  
