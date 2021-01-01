@@ -26,7 +26,6 @@ class Restaurant < ApplicationRecord
     scope :filter_dine_in, -> { where(dine_in: true) }
     scope :filter_take_out, -> { where(take_out: true) }
     scope :filter_by_restaurant, -> (s="") { where("NAME like ?", "%#{s}%") } 
-
     # scope :filter_by_state, -> (s="NY") { where("STATE = ?", s) } 
     
     def total_rating
