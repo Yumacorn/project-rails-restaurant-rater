@@ -66,3 +66,19 @@
  .flash {
    color: red;
  }
+
+ .review-container {
+   background-color: antiquewhite;
+   padding-top: 5px;
+   margin: 10px;
+   border: 2px solid red;
+   border-radius: 5px;
+ }
+
+ .review-container2 {
+  background-color: silver;
+  padding-top: 5px;
+  margin: 10px;
+  border: 2px solid red;
+  border-radius: 5px;
+}

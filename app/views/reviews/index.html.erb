@@ -15,11 +15,20 @@
 
 <ul>
     <% @reviews.each_with_index do |review, index| %>
-        <li>
-            <div><span class="tab"> Restaurant: <%= link_to review.restaurant.name, restaurant_path(review.restaurant) %></div>
-            <div><span class="tab">Rating: <%= review.rating %> stars</div>
-            <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab">-<%= link_to review.user.name, user_path(review.user) %></div><br>
-            <br>
-        </li>   
+        <% if (index % 2 == 0) %>
+            <li class="review-container">
+                <div><span class="tab"> Restaurant: <%= link_to review.restaurant.name, restaurant_path(review.restaurant) %></div>
+                <div><span class="tab">Rating: <%= review.rating %> stars</div>
+                <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab">-<%= link_to review.user.name, user_path(review.user) %></div><br>
+                <br>
+            </li>   
+        <% else %>
+            <li class="review-container2">
+                <div><span class="tab"> Restaurant: <%= link_to review.restaurant.name, restaurant_path(review.restaurant) %></div>
+                <div><span class="tab">Rating: <%= review.rating %> stars</div>
+                <div><span class="tab"> <em>Comment:</em> <%= review.comment %><span class="tab">-<%= link_to review.user.name, user_path(review.user) %></div><br>
+                <br>
+            </li>  
+        <% end %>
     <% end %>
 </ul>
