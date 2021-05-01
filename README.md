@@ -1,28 +1,6 @@
-# README
+# Restaurant Rater
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
+Community driven application using weighted grading system of restaurants to highlight local excitement and buzz for local businesses, sharing recommendations for restaurants and open forum support for customer feedback
 
 Any questions/comments/suggestions, feel free to reach out!
 Email: ReachRyanMui@gmail.com
