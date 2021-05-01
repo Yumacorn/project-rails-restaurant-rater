@@ -5,6 +5,7 @@ Community driven application using weighted grading system of restaurants to hig
 In order to run:
 
 -Fork and clone a copy of this git repo to your local machine
+
 -Initialize backend database and start a localhost server for frontend
 
 
